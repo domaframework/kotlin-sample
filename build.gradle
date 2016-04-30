@@ -1,0 +1,48 @@
+group 'org.sesasar.doma'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        kotlinVersion = '1.0.1-2'
+        domaVersion = '2.8.1-SNAPSHOT'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
+    }
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'application'
+apply plugin: 'idea'
+
+mainClassName='AppKt'
+sourceCompatibility = 1.8
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+compileJava.options.compilerArgs = ['-Adoma.debug=true', '-s', 'src/main/generated']
+
+kapt {
+    generateStubs = false
+}
+
+sourceSets {
+    main.java.srcDirs += 'build/generated/source/kapt/main'
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.seasar.doma:doma:$domaVersion"
+    compile 'com.h2database:h2:1.3.175'
+    kapt "org.seasar.doma:doma:$domaVersion"
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

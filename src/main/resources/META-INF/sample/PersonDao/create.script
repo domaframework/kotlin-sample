@@ -1,0 +1,8 @@
+create table person(
+    id int not null identity primary key,
+    name varchar(20),
+    age int
+);
+
+insert into person (id, name, age) values(1, 'SMITH', 10);
+insert into person (id, name, age) values(2, 'ALLEN', 20);
