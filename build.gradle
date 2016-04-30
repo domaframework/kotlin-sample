@@ -23,14 +23,10 @@ sourceCompatibility = 1.8
 
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
-compileJava.options.compilerArgs = ['-Adoma.debug=true', '-s', 'src/main/generated']
+compileJava.options.compilerArgs = ['-Adoma.debug=true']
 
 kapt {
     generateStubs = false
-}
-
-sourceSets {
-    main.java.srcDirs += 'build/generated/source/kapt/main'
 }
 
 repositories {
