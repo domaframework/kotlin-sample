@@ -4,9 +4,8 @@ import org.junit.After
 import org.junit.Before
 
 abstract class AbstractTest {
-    val config = AppConfig()
-    val tm = config.transactionManager
-    val dao = DaoFactory.create(PersonDao::class.java, config)
+    val tm = AppConfig.transactionManager
+    val dao = DaoFactory.create(PersonDao::class.java, AppConfig)
 
     @Before fun setUp() {
         tm.required {
