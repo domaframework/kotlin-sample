@@ -1,14 +1,11 @@
 package sample
 
-import org.seasar.doma.jdbc.Config
-
 object DaoFactory {
-    fun <T> create(daoInterface: Class<T>, config: Config): T {
+    fun <T> create(daoInterface: Class<T>): T {
         val implClassName = daoInterface.getName() + "Impl"
         try {
             val implClass = Class.forName(implClassName)
-            val constructor = implClass.getConstructor(Config::class.java)
-            return constructor.newInstance(config) as T
+            return implClass.newInstance() as T
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

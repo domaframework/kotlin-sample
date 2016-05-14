@@ -3,7 +3,7 @@ package sample
 import org.seasar.doma.*
 import org.seasar.doma.jdbc.Result
 
-@Dao
+@Dao(config = AppConfig::class)
 interface PersonDao {
 
     @Script
