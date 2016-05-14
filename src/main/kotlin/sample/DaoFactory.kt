@@ -1,8 +1,11 @@
 package sample
 
+import kotlin.reflect.KClass
+
 object DaoFactory {
-    fun <T> create(daoInterface: Class<T>): T {
-        val implClassName = daoInterface.getName() + "Impl"
+    @Suppress("UNCHECKED_CAST")
+    fun <T> create(daoInterface: KClass<T>): T where T : Any {
+        val implClassName = daoInterface.qualifiedName + "Impl"
         try {
             val implClass = Class.forName(implClassName)
             return implClass.newInstance() as T

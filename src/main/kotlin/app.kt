@@ -4,7 +4,7 @@ import sample.DaoFactory
 import sample.PersonDao
 
 fun main(args: Array<String>) {
-    val dao = DaoFactory.create(PersonDao::class.java)
+    val dao = DaoFactory.create(PersonDao::class)
     val tm = AppConfig.transactionManager
     tm.required {
         dao.create()

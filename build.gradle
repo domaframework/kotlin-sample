@@ -36,6 +36,7 @@ repositories {
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     compile "org.seasar.doma:doma:$domaVersion"
     compile 'com.h2database:h2:1.3.175'
     kapt "org.seasar.doma:doma:$domaVersion"
