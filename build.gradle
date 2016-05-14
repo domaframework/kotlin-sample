@@ -23,7 +23,6 @@ sourceCompatibility = 1.8
 
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
-compileJava.options.compilerArgs = ['-Adoma.debug=true']
 
 kapt {
     generateStubs = false
