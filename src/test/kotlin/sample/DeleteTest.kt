@@ -8,8 +8,9 @@ class DeleteTest : AbstractTest() {
     @Test fun test() {
         tm.required {
             val person = dao.selectById(1)
-            val result = dao.delete(person)
-            Assert.assertEquals(1, result.count)
+            val (entity, count) = dao.delete(person)
+            Assert.assertNotNull(entity)
+            Assert.assertEquals(1, count)
         }
     }
 }

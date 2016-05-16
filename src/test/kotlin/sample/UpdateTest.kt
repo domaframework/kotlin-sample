@@ -9,8 +9,8 @@ class UpdateTest: AbstractTest() {
         tm.required {
             val person = dao.selectById(1)
             val newPerson = person.copy(age = person.age?.let { it + 1 })
-            val result = dao.update(newPerson)
-            with(result.entity) {
+            val (entity) = dao.update(newPerson)
+            with(entity) {
                 Assert.assertEquals(id, 1)
                 Assert.assertEquals(name, Name("SMITH"))
                 Assert.assertEquals(age, 11)
