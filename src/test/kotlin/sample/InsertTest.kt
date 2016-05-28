@@ -7,7 +7,8 @@ class InsertTest : AbstractTest() {
 
     @Test fun test() {
         tm.required {
-            val (entity) = dao.insert(Person(name = Name("WARD"), age = 10))
+            val address = Address(city = "Kyoto", street = "Kawaramachi")
+            val (entity) = dao.insert(Person(name = Name("WARD"), age = 10, address = address))
             val id = entity.id!!
             Assert.assertEquals(dao.selectById(id), entity)
             with(entity) {

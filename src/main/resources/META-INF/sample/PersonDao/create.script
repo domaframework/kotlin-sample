@@ -1,8 +1,10 @@
 create table person(
     id int not null identity primary key,
     name varchar(20),
-    age int
+    age int,
+    city varchar(20) not null,
+    street varchar(20)not null
 );
 
-insert into person (id, name, age) values(1, 'SMITH', 10);
-insert into person (id, name, age) values(2, 'ALLEN', 20);
+insert into person (id, name, age, city, street) values(1, 'SMITH', 10, 'Tokyo', 'Yaesu');
+insert into person (id, name, age, city, street) values(2, 'ALLEN', 20, 'Kyoto', 'Karasuma');

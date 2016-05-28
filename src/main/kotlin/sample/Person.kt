@@ -10,4 +10,5 @@ data class Person(
         @GeneratedValue(strategy = org.seasar.doma.GenerationType.IDENTITY)
         val id:Int? = null,
         val name:Name,
-        val age:Int?)
+        val age:Int?,
+        val address: Address)
