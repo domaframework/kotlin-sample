@@ -14,6 +14,7 @@ class InsertTest : AbstractTest() {
             with(entity) {
                 Assert.assertEquals(name, Name("WARD"))
                 Assert.assertEquals(age, 10)
+                Assert.assertEquals(version, 1)
             }
         }
     }
