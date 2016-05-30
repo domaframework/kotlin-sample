@@ -9,9 +9,9 @@ import org.seasar.doma.Version
 data class Person(
         @Id
         @GeneratedValue(strategy = org.seasar.doma.GenerationType.IDENTITY)
-        val id:Int? = null,
-        val name:Name,
-        val age:Int?,
+        val id: Int? = null,
+        val name: Name,
+        val age: Int?,
         val address: Address,
         @Version
         val version: Int = -1)
