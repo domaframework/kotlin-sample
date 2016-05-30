@@ -3,7 +3,7 @@ create table person(
     name varchar(20),
     age int,
     city varchar(20) not null,
-    street varchar(20)not null,
+    street varchar(20) not null,
     version int not null
 );
 
