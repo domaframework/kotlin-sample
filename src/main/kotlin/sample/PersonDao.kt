@@ -13,7 +13,7 @@ interface PersonDao {
     fun drop()
 
     @Select
-    fun selectById(@ParameterName("id") id:Int): Person
+    fun selectById(id:Int): Person
 
     @Insert
     fun insert(person: Person): Result<Person>
