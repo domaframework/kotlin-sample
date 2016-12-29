@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext {
-        kotlinVersion = '1.0.2'
+        kotlinVersion = '1.0.6'
         domaVersion = '2.10.0'
     }
     repositories {
@@ -17,6 +17,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'application'
 apply plugin: 'idea'
+apply plugin: 'kotlin-kapt'
 
 mainClassName='AppKt'
 sourceCompatibility = 1.8
@@ -24,8 +25,15 @@ sourceCompatibility = 1.8
 processResources.destinationDir = compileJava.destinationDir
 compileJava.dependsOn processResources
 
-kapt {
-    generateStubs = false
+task copy(type: Copy) {
+    from sourceSets.main.resources
+    into compileKotlin.destinationDir
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'kaptKotlin') {
+        task.dependsOn copy
+    }
 }
 
 repositories {
