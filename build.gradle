@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext {
         kotlinVersion = '1.0.6'
-        domaVersion = '2.10.0'
+        domaVersion = '2.14.0'
     }
     repositories {
         mavenCentral()
