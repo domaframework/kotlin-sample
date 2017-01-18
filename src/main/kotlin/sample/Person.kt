@@ -10,5 +10,6 @@ data class Person(
         val name: Name,
         val age: Int?,
         val address: Address,
+        val departmentId: Int,
         @Version
         val version: Int = -1)

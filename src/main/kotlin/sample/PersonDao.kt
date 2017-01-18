@@ -15,6 +15,9 @@ interface PersonDao {
     @Select
     fun selectById(id:Int): Person
 
+    @Select
+    fun selectWithDeparmentById(id: Int): PersonDepartment
+
     @Insert
     fun insert(person: Person): Result<Person>
 
