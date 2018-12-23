@@ -1,10 +1,8 @@
 
-import sample.AppConfig
-import sample.DaoFactory
-import sample.PersonDao
+import sample.*
 
 fun main(args: Array<String>) {
-    val dao = DaoFactory.create(PersonDao::class)
+    val dao = PersonDaoImpl()
     val tm = AppConfig.transactionManager
     tm.required {
         dao.create()
