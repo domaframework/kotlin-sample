@@ -25,26 +25,20 @@ sourceCompatibility = 1.8
 
 kapt {
     arguments {
-        arg("doma.resources.dir", domaResourcesDir)
+        arg("doma.resources.dir", compileKotlin.destinationDir)
     }
 }
 
-task extractDomaResources(type: Copy, dependsOn: processResources)  {
-    from processResources.destinationDir
+task copyDomaResources(type: Sync)  {
+    from sourceSets.main.resources.srcDirs
+    into compileKotlin.destinationDir
     include 'doma.compile.config'
     include 'META-INF/**/*.sql'
     include 'META-INF/**/*.script'
-    into domaResourcesDir
-}
-
-task copyDomaResources(type: Copy, dependsOn: extractDomaResources)  {
-    from domaResourcesDir
-    into compileJava.destinationDir
 }
 
 compileKotlin {
     dependsOn copyDomaResources
-    inputs.dir domaResourcesDir
 }
 
 repositories {
