@@ -9,7 +9,6 @@ version '1.0-SNAPSHOT'
 buildscript {
     ext.kotlin_version = '1.3.11'
     ext.doma_version = '2.20.0'
-    ext.domaResourcesDir = "${buildDir}/tmp/doma-resources"
 
     repositories {
         mavenCentral()
