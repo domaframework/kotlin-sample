@@ -1,5 +1,5 @@
-
-import sample.*
+import sample.AppConfig
+import sample.PersonDaoImpl
 
 fun main(args: Array<String>) {
     val dao = PersonDaoImpl()

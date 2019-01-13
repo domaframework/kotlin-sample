@@ -8,7 +8,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.3.11'
-    ext.doma_version = '2.20.0'
+    ext.doma_version = '2.21.1-SNAPSHOT'
 
     repositories {
         mavenCentral()
@@ -57,5 +57,7 @@ dependencies {
 idea {
     module {
         inheritOutputDirs = true
+        sourceDirs += files('build/generated/source/kapt/main', 'build/generated/source/kaptKotlin/main')
+        generatedSourceDirs += files('build/generated/source/kapt/main', 'build/generated/source/kaptKotlin/main')
     }
 }

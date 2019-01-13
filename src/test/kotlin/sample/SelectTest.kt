@@ -14,7 +14,7 @@ class SelectTest: AbstractTest() {
 
     @Test fun joinDepartment() {
         tm.required {
-            val person = dao.selectWithDeparmentById(1)
+            val person = dao.selectWithDepartmentById(1)
             Assert.assertEquals(PersonDepartment(1, Name("SMITH"), 1, Name("ACCOUNTING")), person)
         }
 
