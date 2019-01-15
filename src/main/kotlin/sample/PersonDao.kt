@@ -45,7 +45,7 @@ interface PersonDao {
     select * from person where id = /*id*/0
     """)
     @Select
-    fun selectById(id: Int?): Person
+    fun selectById(id: Int): Person
 
     @Sql("""
     select
@@ -62,7 +62,7 @@ interface PersonDao {
         p.id = /*id*/0
     """)
     @Select
-    fun selectWithDepartmentById(id: Int?): PersonDepartment
+    fun selectWithDepartmentById(id: Int): PersonDepartment
 
     @Insert
     fun insert(person: Person): Result<Person>
