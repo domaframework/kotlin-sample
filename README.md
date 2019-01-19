@@ -1,34 +1,52 @@
 Doma Kotlin Sample
-------------------
+==================
 
-### Build
+Before You Start
+----------------
 
-```sh
-./gradlew clean build
-```
+### Get JDK
 
-### Run
+You need JDK 8+.
 
-```sh
-./gradlew clean run
-```
-
-----
-
-### 注意点
-
-#### エラーメッセージについて
-JSR 269の注釈処理と異なり、Kotlinのkaptは問題があるソースコードの場所を示しません。
-Domaのメッセージの末尾の文言（`at className.memberName`）を参考にしてください。
+### Get the Source Code
 
 ```sh
-エラー: [DOMA4005] @Selectや@Updateなど問い合わせの種別を表すアノテーションが必要です。 at sample.PersonDao.insert
-エラー1個
+$ git clone https://github.com/domaframework/kotlin-sample.git
+$ cd kotlin-sample
 ```
 
-Domaのメッセージそのものがエラーの発生場所を示していることもあります。
+Build with Gradle
+-----------------
 
-### ドキュメント
+Use `./gradlew` command:
 
-- [Kotlin サポート](http://doma.readthedocs.io/ja/stable/kotlin-support/)
+```sh
+./gradlew build
+```
+
+Import this project to IntelliJ IDEA
+------------------------------------
+
+Generate files used by IntelliJ IDEA:
+
+```sh
+./gradlew idea
+```
+
+Start your IntelliJ IDEA.
+
+Select "File > New > Project from Existing Sources..." from the menu bar and choose "Gradle":
+![import-1](docs/images/import-project.png)
+
+Check the box "Use auto-import" and uncheck the box "Create separate module per source set": 
+![import-2](docs/images/import-project-gradle-settings.png)
+
+When you finish importing the project, check the box
+"Delegate IDE build/run actions to gradle" in the preferences dialog:
+![import-3](docs/images/preferences.png)
+
+Document
+--------
+
+- [Kotlin support](http://doma.readthedocs.io/en/stable/kotlin-support/)
 
