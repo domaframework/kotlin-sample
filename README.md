@@ -15,35 +15,28 @@ $ git clone https://github.com/domaframework/kotlin-sample.git
 $ cd kotlin-sample
 ```
 
-Build with Gradle
------------------
-
-Use `./gradlew` command:
-
-```sh
-./gradlew build
-```
-
 Import this project to IntelliJ IDEA
 ------------------------------------
 
-Generate files used by IntelliJ IDEA:
-
-```sh
-./gradlew idea
-```
-
 Start your IntelliJ IDEA.
+In this document, we use IntelliJ IDEA 2019.2.
 
 Select "File > New > Project from Existing Sources..." from the menu bar and choose "Gradle":
 ![import-1](docs/images/import-project.png)
 
-Check the box "Use auto-import" and uncheck the box "Create separate module per source set": 
-![import-2](docs/images/import-project-gradle-settings.png)
+Build and Run with IDEA
+-----------------------
 
-When you finish importing the project, check the box
-"Delegate IDE build/run actions to gradle" in the preferences dialog:
-![import-3](docs/images/preferences.png)
+Select "Build > Build Project" from the menu bar and Run 'AppKt'.
+
+Build and Run with Gradle
+-------------------------
+
+Use `./gradlew` command:
+
+```sh
+./gradlew run
+```
 
 Document
 --------
