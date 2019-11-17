@@ -10,7 +10,7 @@ enum class Gender(val code:String) {
     FEMALE("1");
 
     companion object {
-        @JvmStatic
+        @JvmStatic // doma requires JvmStatic annotation for factory method
         fun of(code:String):Gender = values().firstOrNull { it.code == code } ?: throw IllegalArgumentException("hoge")
     }
 }
