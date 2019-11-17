@@ -11,5 +11,6 @@ data class Person(
         val age: Int?,
         val address: Address,
         val departmentId: Int,
+        val gender: Gender,
         @Version
         val version: Int = -1)
