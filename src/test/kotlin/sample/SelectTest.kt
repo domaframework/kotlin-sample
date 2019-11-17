@@ -8,7 +8,7 @@ class SelectTest: AbstractTest() {
     @Test fun test() {
         tm.required {
             val person = dao.selectById(1)
-            Assert.assertEquals(Person(1, Name("SMITH"), 10, Address("Tokyo", "Yaesu"), 1, 0), person)
+            Assert.assertEquals(Person(1, Name("SMITH"), 10, Address("Tokyo", "Yaesu"), 1, Gender.MALE, 0), person)
         }
     }
 

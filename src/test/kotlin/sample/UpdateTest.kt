@@ -14,6 +14,7 @@ class UpdateTest: AbstractTest() {
                 Assert.assertEquals(id, 1)
                 Assert.assertEquals(name, Name("SMITH"))
                 Assert.assertEquals(age, 11)
+                Assert.assertEquals(gender, Gender.MALE)
             }
         }
     }
