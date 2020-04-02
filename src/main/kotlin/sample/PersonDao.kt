@@ -42,9 +42,6 @@ interface PersonDao {
     @Script
     fun drop()
 
-    @Sql("""
-    select * from person where id = /*id*/0
-    """)
     @Select
     fun selectById(id: Int): Person
 
