@@ -10,16 +10,7 @@ ext.doma_version = '2.28.0'
 mainClassName = 'AppKt'
 sourceCompatibility = 1.8
 
-task copyDomaResources(type: Sync)  {
-    from sourceSets.main.resources.srcDirs
-    into compileKotlin.destinationDir
-    include 'doma.compile.config'
-    include 'META-INF/**/*.sql'
-    include 'META-INF/**/*.script'
-}
-
 compileKotlin {
-    dependsOn copyDomaResources
     kotlinOptions.jvmTarget = '1.8'
 }
 
