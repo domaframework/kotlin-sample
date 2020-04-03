@@ -1,8 +1,8 @@
 plugins {
-    id "org.jetbrains.kotlin.jvm" version "1.3.70"
-    id "org.jetbrains.kotlin.kapt" version "1.3.70"
+    id 'org.jetbrains.kotlin.jvm' version '1.3.70'
+    id 'org.jetbrains.kotlin.kapt' version '1.3.70'
+    id 'org.seasar.doma.compile' version '1.0.0'
     id 'application'
-    id 'idea'
 }
 
 ext.doma_version = '2.28.0'
@@ -10,22 +10,7 @@ ext.doma_version = '2.28.0'
 mainClassName = 'AppKt'
 sourceCompatibility = 1.8
 
-kapt {
-    arguments {
-        arg("doma.resources.dir", compileKotlin.destinationDir)
-    }
-}
-
-task copyDomaResources(type: Sync)  {
-    from sourceSets.main.resources.srcDirs
-    into compileKotlin.destinationDir
-    include 'doma.compile.config'
-    include 'META-INF/**/*.sql'
-    include 'META-INF/**/*.script'
-}
-
 compileKotlin {
-    dependsOn copyDomaResources
     kotlinOptions.jvmTarget = '1.8'
 }
 
@@ -42,7 +27,7 @@ repositories {
 dependencies {
     kapt "org.seasar.doma:doma:$doma_version"
     implementation "org.seasar.doma:doma:$doma_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
     runtimeOnly 'com.h2database:h2:1.3.175'
     testImplementation group: 'junit', name: 'junit', version: '4.11'
 }
