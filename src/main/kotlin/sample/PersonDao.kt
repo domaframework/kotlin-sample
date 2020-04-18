@@ -70,4 +70,8 @@ interface PersonDao {
 
     @Delete
     fun delete(person: Person): Result<Person>
+
+    fun hello(name: String): String {
+        return "hello $name"
+    }
 }
