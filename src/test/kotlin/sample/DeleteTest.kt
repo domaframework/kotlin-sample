@@ -1,16 +1,23 @@
 package sample
 
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.seasar.doma.jdbc.tx.TransactionManager
 
-class DeleteTest : AbstractTest() {
+@ExtendWith(Env::class)
+class DeleteTest(private val tm: TransactionManager) {
 
-    @Test fun test() {
+    private val dao: PersonDao = PersonDaoImpl()
+
+    @Test
+    fun test() {
         tm.required {
             val person = dao.selectById(1)
             val (entity, count) = dao.delete(person)
-            Assert.assertNotNull(entity)
-            Assert.assertEquals(1, count)
+            assertNotNull(entity)
+            assertEquals(1, count)
         }
     }
 }

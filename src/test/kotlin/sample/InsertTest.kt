@@ -1,21 +1,27 @@
 package sample
 
-import org.junit.Assert
-import org.junit.Test
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
+import org.seasar.doma.jdbc.tx.TransactionManager
 
-class InsertTest : AbstractTest() {
+@ExtendWith(Env::class)
+class InsertTest(private val tm: TransactionManager) {
 
-    @Test fun test() {
+    private val dao: PersonDao = PersonDaoImpl()
+
+    @Test
+    fun test() {
         tm.required {
             val address = Address(city = "Kyoto", street = "Kawaramachi")
             val (entity) = dao.insert(Person(name = Name("WARD"), age = 10, address = address, departmentId = 1, gender = Gender.MALE))
             val id = entity.id!!
-            Assert.assertEquals(dao.selectById(id), entity)
+            assertEquals(dao.selectById(id), entity)
             with(entity) {
-                Assert.assertEquals(name, Name("WARD"))
-                Assert.assertEquals(age, 10)
-                Assert.assertEquals(gender, Gender.MALE)
-                Assert.assertEquals(version, 1)
+                assertEquals(name, Name("WARD"))
+                assertEquals(age, 10)
+                assertEquals(gender, Gender.MALE)
+                assertEquals(version, 1)
             }
         }
     }

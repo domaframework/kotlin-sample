@@ -13,4 +13,7 @@ data class Person(
         val departmentId: Int,
         val gender: Gender,
         @Version
-        val version: Int = -1)
+        val version: Int = -1) {
+        @Transient
+        var department: Department? = null
+}

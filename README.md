@@ -29,13 +29,13 @@ Build and Run with IDEA
 
 Select "Build > Build Project" from the menu bar and Run 'AppKt'.
 
-Build and Run with Gradle
+Build with Gradle
 -------------------------
 
 Use `./gradlew` command:
 
 ```sh
-./gradlew run
+./gradlew build
 ```
 
 Document
