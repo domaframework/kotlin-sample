@@ -24,11 +24,6 @@ In this document, we use IntelliJ IDEA 2019.2.
 Select "File > New > Project from Existing Sources..." from the menu bar and choose "Gradle":
 ![import-1](docs/images/import-project.png)
 
-Build and Run with IDEA
------------------------
-
-Select "Build > Build Project" from the menu bar and Run 'AppKt'.
-
 Build with Gradle
 -------------------------
 
