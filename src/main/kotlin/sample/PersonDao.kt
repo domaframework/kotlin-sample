@@ -3,7 +3,6 @@ package sample
 import org.seasar.doma.Dao
 import org.seasar.doma.Delete
 import org.seasar.doma.Insert
-import org.seasar.doma.Script
 import org.seasar.doma.Select
 import org.seasar.doma.Sql
 import org.seasar.doma.Update
@@ -11,39 +10,34 @@ import org.seasar.doma.criteria.entityql
 import org.seasar.doma.jdbc.Config
 import org.seasar.doma.jdbc.Result
 
-@Dao(config = DbConfig::class)
+@Dao
 interface PersonDao {
 
-    @Sql("""
-    """)
-    @Script
-    fun create()
-
-    @Sql("""
-    drop table person;
-    drop table department;
-    """)
-    @Script
-    fun drop()
+    private val config
+        get() = Config.get(this)
 
     @Select
     fun selectById(id: Int): Person
 
-    fun findById(id: Int): Person {
+    @Sql("select * from person where name = /*name*/0")
+    @Select
+    fun selectByName(name: String): Person
+
+    fun findByDepartmentName(departmentName: String): List<Person> {
         val query = entityql {
-            from(::_Person) { p ->
-                val d = innerJoin(::_Department) { d ->
+            from(::Person_) { p ->
+                val d = innerJoin(::Department_) { d ->
                     p.id eq d.id
                 }
                 where {
-                    p.id eq id
+                    d.name eq departmentName
                 }
                 associate(p, d) { person, department ->
                     person.department = department
                 }
             }
         }
-        return query.execute(Config.get(this)).first()
+        return query.execute(config)
     }
 
     @Insert
@@ -54,5 +48,4 @@ interface PersonDao {
 
     @Delete
     fun delete(person: Person): Result<Person>
-
 }

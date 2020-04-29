@@ -5,43 +5,13 @@ import org.junit.jupiter.api.extension.BeforeTestExecutionCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
+import org.seasar.doma.jdbc.Config
 import org.seasar.doma.jdbc.tx.TransactionManager
 
 internal class Env :
         BeforeTestExecutionCallback,
         AfterTestExecutionCallback,
         ParameterResolver {
-
-//    private val config = object : Config {
-//        private val dataSource = createDataSource()
-//        val localTransaction = dataSource.getLocalTransaction(jdbcLogger)
-//        private val transactionManager = LocalTransactionManager(localTransaction)
-//        private val dialect = H2Dialect()
-//
-//        override fun getDataSource(): DataSource {
-//            return dataSource
-//        }
-//
-//        override fun getDialect(): Dialect {
-//            return dialect
-//        }
-//
-//        override fun getTransactionManager(): TransactionManager {
-//            return transactionManager
-//        }
-//
-//        override fun getNaming(): Naming {
-//            return Naming.SNAKE_UPPER_CASE
-//        }
-//
-//        private fun createDataSource(): LocalTransactionDataSource {
-//            val dataSource = SimpleDataSource()
-//            dataSource.url = "jdbc:h2:mem:doma_it;DB_CLOSE_DELAY=-1"
-//            dataSource.user = "sa"
-//            dataSource.password = ""
-//            return LocalTransactionDataSource(dataSource)
-//        }
-//    }
 
     override fun beforeTestExecution(context: ExtensionContext?) {
         DbConfig.transactionManager.required {
@@ -69,14 +39,14 @@ internal class Env :
             parameterContext: ParameterContext?,
             extensionContext: ExtensionContext?
     ): Boolean =
-            parameterContext!!.parameter.type === TransactionManager::class.java
+            parameterContext!!.parameter.type === Config::class.java
 
 
     override fun resolveParameter(
             parameterContext: ParameterContext?,
             extensionContext: ExtensionContext?
     ): Any? {
-        return DbConfig.transactionManager
+        return DbConfig
     }
 
     private val initSql = """

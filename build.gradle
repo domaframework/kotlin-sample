@@ -5,7 +5,13 @@ plugins {
     id 'org.seasar.doma.compile' version '1.0.0'
 }
 
-def domaVersion = '2.30.1-SNAPSHOT'
+def domaVersion = '2.31.0'
+
+kapt {
+    arguments {
+        arg("doma.criteria.enabled", true)
+    }
+}
 
 sourceCompatibility = 1.8
 
