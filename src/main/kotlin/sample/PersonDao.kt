@@ -1,22 +1,16 @@
 package sample
 
-import org.seasar.doma.BatchInsert
 import org.seasar.doma.Dao
-import org.seasar.doma.Delete
-import org.seasar.doma.Insert
 import org.seasar.doma.Select
 import org.seasar.doma.Sql
-import org.seasar.doma.Update
-import org.seasar.doma.jdbc.BatchResult
 import org.seasar.doma.jdbc.Config
-import org.seasar.doma.jdbc.Result
 import org.seasar.doma.jdbc.criteria.Entityql
 
 @Dao
 interface PersonDao {
 
-    private val config
-        get() = Config.get(this)
+    private val entityql
+        get() = Entityql(Config.get(this))
 
     @Select
     fun selectById(id: Int): Person
@@ -29,22 +23,28 @@ interface PersonDao {
         val p = Person_()
         val d = Department_()
 
-        val stmt = Entityql.from(p).innerJoin(d) {
+        val stmt = entityql.from(p).innerJoin(d) {
             it.eq(p.departmentId, d.id)
         }.where {
             it.eq(d.name, departmentName)
         }.associate(p, d) { person, department ->
             person.department = department
         }
-        return stmt.execute(config)
+        return stmt.resultList
     }
 
-    @Insert
-    fun insert(person: Person): Result<Person>
+    fun insert(person: Person): Person {
+        val p = Person_()
+        return entityql.insert(p, person).execute()
+    }
 
-    @Update
-    fun update(person: Person): Result<Person>
+    fun update(person: Person): Person {
+        val p = Person_()
+        return entityql.update(p, person).execute()
+    }
 
-    @Delete
-    fun delete(person: Person): Result<Person>
+    fun delete(person: Person): Person {
+        val p = Person_()
+        return entityql.delete(p, person).execute()
+    }
 }

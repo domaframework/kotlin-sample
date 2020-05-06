@@ -1,6 +1,11 @@
 package sample
 
-import org.seasar.doma.*
+import org.seasar.doma.Entity
+import org.seasar.doma.GeneratedValue
+import org.seasar.doma.GenerationType
+import org.seasar.doma.Id
+import org.seasar.doma.Transient
+import org.seasar.doma.Version
 
 @Entity(immutable = true)
 data class Person(
@@ -14,6 +19,6 @@ data class Person(
         val gender: Gender,
         @Version
         val version: Int = -1) {
-        @Transient
-        var department: Department? = null
+    @Transient
+    var department: Department? = null
 }

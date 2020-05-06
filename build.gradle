@@ -5,7 +5,7 @@ plugins {
     id 'org.seasar.doma.compile' version '1.0.0'
 }
 
-def domaVersion = '2.32.0'
+def domaVersion = '2.33.0'
 
 mainClassName = 'sample.AppKt'
 
@@ -27,7 +27,7 @@ test {
 repositories {
     mavenCentral()
     mavenLocal()
-    maven {url 'https://oss.sonatype.org/content/repositories/snapshots/'}
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {
