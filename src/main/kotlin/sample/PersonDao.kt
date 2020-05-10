@@ -23,14 +23,13 @@ interface PersonDao {
         val p = Person_()
         val d = Department_()
 
-        val stmt = entityql.from(p).innerJoin(d) {
+        return entityql.from(p).innerJoin(d) {
             it.eq(p.departmentId, d.id)
         }.where {
             it.eq(d.name, departmentName)
         }.associate(p, d) { person, department ->
             person.department = department
-        }
-        return stmt.resultList
+        }.fetch();
     }
 
     fun insert(person: Person): Person {
