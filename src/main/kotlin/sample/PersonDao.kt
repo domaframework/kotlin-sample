@@ -34,16 +34,19 @@ interface PersonDao {
 
     fun insert(person: Person): Person {
         val p = Person_()
-        return entityql.insert(p, person).execute()
+        val result = entityql.insert(p, person).execute()
+        return result.entity
     }
 
     fun update(person: Person): Person {
         val p = Person_()
-        return entityql.update(p, person).execute()
+        val result = entityql.update(p, person).execute()
+        return result.entity
     }
 
     fun delete(person: Person): Person {
         val p = Person_()
-        return entityql.delete(p, person).execute()
+        val result = entityql.delete(p, person).execute()
+        return result.entity
     }
 }
