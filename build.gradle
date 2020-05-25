@@ -5,7 +5,7 @@ plugins {
     id 'org.seasar.doma.compile' version '1.0.0'
 }
 
-def domaVersion = '2.35.0'
+def domaVersion = '2.36.0'
 
 mainClassName = 'sample.AppKt'
 
