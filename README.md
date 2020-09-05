@@ -6,7 +6,7 @@ Before You Start
 
 ### Get JDK
 
-You need JDK 8+.
+You need JDK 11+.
 
 ### Get the Source Code
 
@@ -19,18 +19,21 @@ Import this project to IntelliJ IDEA
 ------------------------------------
 
 Start your IntelliJ IDEA.
-In this document, we use IntelliJ IDEA 2019.2.
 
 Select "File > New > Project from Existing Sources..." from the menu bar and choose "Gradle":
-![import-1](docs/images/import-project.png)
 
 Build with Gradle
 -------------------------
 
-Use `./gradlew` command:
-
 ```sh
 ./gradlew build
+```
+
+Run with Gradle
+-------------------------
+
+```sh
+./gradlew run
 ```
 
 Document
