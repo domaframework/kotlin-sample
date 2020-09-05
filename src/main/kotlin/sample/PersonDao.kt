@@ -29,7 +29,7 @@ interface PersonDao {
             it.eq(d.name, departmentName)
         }.associate(p, d) { person, department ->
             person.department = department
-        }.fetch();
+        }.fetch()
     }
 
     fun insert(person: Person): Person {

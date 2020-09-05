@@ -7,7 +7,8 @@ import org.seasar.doma.Sql
 @Dao
 interface ScriptDao {
 
-    @Sql("""
+    @Sql(
+        """
         create table department(
             id int not null identity primary key,
             name varchar(20),
@@ -31,7 +32,8 @@ interface ScriptDao {
     
         insert into person (id, name, age, city, street, department_id, gender, version) values(1, 'SMITH', 10, 'Tokyo', 'Yaesu', 1, '0', 0);
         insert into person (id, name, age, city, street, department_id, gender, version) values(2, 'ALLEN', 20, 'Kyoto', 'Karasuma', 2, '1', 0);
-        """)
+        """
+    )
     @Script
     fun create()
 

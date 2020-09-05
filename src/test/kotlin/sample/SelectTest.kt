@@ -14,13 +14,18 @@ class SelectTest(private val config: DbConfig) {
     fun selectBySqlFile() {
         config.transactionManager.required {
             val person = dao.selectById(1)
-            assertEquals(Person(1,
+            assertEquals(
+                Person(
+                    1,
                     Name("SMITH"),
                     10,
                     Address("Tokyo", "Yaesu"),
                     1,
                     Gender.MALE,
-                    0), person)
+                    0
+                ),
+                person
+            )
         }
     }
 
@@ -28,13 +33,18 @@ class SelectTest(private val config: DbConfig) {
     fun selectBySqlAnnotation() {
         config.transactionManager.required {
             val person = dao.selectByName("SMITH")
-            assertEquals(Person(1,
+            assertEquals(
+                Person(
+                    1,
                     Name("SMITH"),
                     10,
                     Address("Tokyo", "Yaesu"),
                     1,
                     Gender.MALE,
-                    0), person)
+                    0
+                ),
+                person
+            )
         }
     }
 

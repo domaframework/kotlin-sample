@@ -7,9 +7,9 @@ import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
 
 internal class Env :
-        BeforeTestExecutionCallback,
-        AfterTestExecutionCallback,
-        ParameterResolver {
+    BeforeTestExecutionCallback,
+    AfterTestExecutionCallback,
+    ParameterResolver {
 
     private val scriptDao: ScriptDao = ScriptDaoImpl(DbConfig)
 
@@ -26,15 +26,14 @@ internal class Env :
     }
 
     override fun supportsParameter(
-            parameterContext: ParameterContext?,
-            extensionContext: ExtensionContext?
+        parameterContext: ParameterContext?,
+        extensionContext: ExtensionContext?
     ): Boolean =
-            parameterContext!!.parameter.type === DbConfig::class.java
-
+        parameterContext!!.parameter.type === DbConfig::class.java
 
     override fun resolveParameter(
-            parameterContext: ParameterContext?,
-            extensionContext: ExtensionContext?
+        parameterContext: ParameterContext?,
+        extensionContext: ExtensionContext?
     ): Any? {
         return DbConfig
     }

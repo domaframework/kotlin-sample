@@ -11,7 +11,10 @@ object DbConfig : Config {
     private val dialect = H2Dialect()
 
     private val dataSource = LocalTransactionDataSource(
-            "jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1", "sa", null)
+        "jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1",
+        "sa",
+        null
+    )
 
     internal val localTransaction = dataSource.getLocalTransaction(jdbcLogger)
 
@@ -24,5 +27,4 @@ object DbConfig : Config {
     override fun getTransactionManager() = transactionManager
 
     override fun getNaming() = Naming.SNAKE_LOWER_CASE
-
 }

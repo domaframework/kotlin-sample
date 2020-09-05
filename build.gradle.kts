@@ -1,6 +1,7 @@
 plugins {
     id("application")
     id("org.seasar.doma.compile") version "1.1.0"
+    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
     kotlin("jvm") version "1.4.0"
     kotlin("kapt") version "1.4.0"
 }
@@ -22,6 +23,10 @@ repositories {
     mavenCentral()
     mavenLocal()
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
+}
+
+ktlint {
+    version.set("0.38.1")
 }
 
 tasks {

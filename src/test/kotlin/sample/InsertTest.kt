@@ -14,11 +14,14 @@ class InsertTest(private val config: DbConfig) {
         config.transactionManager.required {
             val address = Address(city = "Kyoto", street = "Kawaramachi")
             val entity = dao.insert(
-                    Person(name = Name("WARD"),
-                            age = 10,
-                            address = address,
-                            departmentId = 1,
-                            gender = Gender.MALE))
+                Person(
+                    name = Name("WARD"),
+                    age = 10,
+                    address = address,
+                    departmentId = 1,
+                    gender = Gender.MALE
+                )
+            )
             val id = entity.id!!
             assertEquals(dao.selectById(id), entity)
             with(entity) {
