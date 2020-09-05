@@ -29,8 +29,8 @@ jobs:
         run: ./gradlew run
 
       - name: Upload reports
-          if: failure()
-          uses: actions/upload-artifact@v2
-          with:
-            name: reports
-            path: build/reports
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: reports
+          path: build/reports
