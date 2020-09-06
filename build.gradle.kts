@@ -1,7 +1,7 @@
 plugins {
     id("application")
     id("org.seasar.doma.compile") version "1.1.0"
-    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
+    id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
     kotlin("jvm") version "1.4.0"
     kotlin("kapt") version "1.4.0"
 }
