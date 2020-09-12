@@ -23,7 +23,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew assemble check
+        run: ./gradlew domaCodeGenDevEntity assemble check
 
       - name: Run the application
         run: ./gradlew run
