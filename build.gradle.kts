@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.h2database:h2:1.4.200")
+    }
+}
+
 plugins {
     id("application")
+    id("org.seasar.doma.codegen") version "1.2.1"
     id("org.seasar.doma.compile") version "1.1.0"
     id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
     kotlin("jvm") version "1.4.0"
@@ -28,6 +38,23 @@ ktlint {
     version.set("0.38.1")
 }
 
+val h2Url = "jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1"
+val h2User = "sa"
+val h2Password = ""
+
+domaCodeGen {
+    register("dev") {
+        url.set(h2Url)
+        user.set(h2User)
+        password.set(h2Password)
+        languageType.set(org.seasar.doma.gradle.codegen.desc.LanguageType.KOTLIN)
+        entity {
+            packageName.set("sample.entity")
+            entityPropertyClassNamesFile.fileValue(file("$projectDir/codegen-name-mapping.properties"))
+        }
+    }
+}
+
 tasks {
     val jvmTarget = "11"
 
@@ -43,4 +70,21 @@ tasks {
         maxHeapSize = "1g"
         useJUnitPlatform()
     }
+
+    register("createDb") {
+        doLast {
+            val ds = org.seasar.doma.gradle.codegen.jdbc.SimpleDataSource()
+            ds.driver = org.h2.Driver()
+            ds.url = h2Url
+            ds.user = h2User
+            ds.password = h2Password
+            ds.connection.use { con ->
+                con.createStatement().use { stmt ->
+                    stmt.execute("RUNSCRIPT FROM '${project.projectDir}/src/main/resources/META-INF/sample/dao/ScriptDao/create.script'")
+                }
+            }
+        }
+    }
 }
+
+tasks.getByName("domaCodeGenDevDbMeta").dependsOn("createDb")

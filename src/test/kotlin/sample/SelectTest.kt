@@ -4,6 +4,10 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
+import sample.dao.PersonDao
+import sample.dao.PersonDaoImpl
+import sample.domain.Gender
+import sample.domain.Name
 
 @ExtendWith(Env::class)
 class SelectTest(private val config: DbConfig) {
@@ -14,18 +18,15 @@ class SelectTest(private val config: DbConfig) {
     fun selectBySqlFile() {
         config.transactionManager.required {
             val person = dao.selectById(1)
-            assertEquals(
-                Person(
-                    1,
-                    Name("SMITH"),
-                    10,
-                    Address("Tokyo", "Yaesu"),
-                    1,
-                    Gender.MALE,
-                    0
-                ),
-                person
-            )
+            with(person) {
+                assertEquals(1, id)
+                assertEquals(Name("SMITH"), name)
+                assertEquals(10, age)
+                assertEquals("Tokyo", city)
+                assertEquals("Yaesu", street)
+                assertEquals(Gender.MALE, gender)
+                assertEquals(0, version)
+            }
         }
     }
 
@@ -33,18 +34,15 @@ class SelectTest(private val config: DbConfig) {
     fun selectBySqlAnnotation() {
         config.transactionManager.required {
             val person = dao.selectByName("SMITH")
-            assertEquals(
-                Person(
-                    1,
-                    Name("SMITH"),
-                    10,
-                    Address("Tokyo", "Yaesu"),
-                    1,
-                    Gender.MALE,
-                    0
-                ),
-                person
-            )
+            with(person) {
+                assertEquals(1, id)
+                assertEquals(Name("SMITH"), name)
+                assertEquals(10, age)
+                assertEquals("Tokyo", city)
+                assertEquals("Yaesu", street)
+                assertEquals(Gender.MALE, gender)
+                assertEquals(0, version)
+            }
         }
     }
 
@@ -54,7 +52,7 @@ class SelectTest(private val config: DbConfig) {
             val persons = dao.findByDepartmentName("ACCOUNTING")
             assertEquals(1, persons.size)
             val person = persons[0]
-            assertEquals("SMITH", person.name.value)
+            assertEquals(Name("SMITH"), person.name)
             assertNotNull(person.department)
             assertEquals(1, person.department?.id)
         }
