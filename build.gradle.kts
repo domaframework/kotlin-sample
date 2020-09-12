@@ -54,7 +54,8 @@ domaCodeGen {
         languageType.set(org.seasar.doma.gradle.codegen.desc.LanguageType.KOTLIN)
         entity {
             packageName.set("sample.entity")
-            entityPropertyClassNamesFile.fileValue(file("$projectDir/codegen-name-mapping.properties"))
+            val mappingFile = layout.projectDirectory.file("$projectDir/codegen-name-mapping.properties")
+            entityPropertyClassNamesFile.set(mappingFile)
         }
     }
 }
