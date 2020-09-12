@@ -23,7 +23,10 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew domaCodeGenDevEntity assemble check
+        run: ./gradlew assemble check
+
+      - name: Generate and Build
+        run: ./gradlew domaCodeGenDevEntity assemble check -x spotlessCheck
 
       - name: Run the application
         run: ./gradlew run
