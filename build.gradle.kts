@@ -93,4 +93,8 @@ tasks {
     named("domaCodeGenDevDbMeta") {
         dependsOn(createDb)
     }
+
+    build {
+        dependsOn(spotlessApply)
+    }
 }
