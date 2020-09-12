@@ -22,6 +22,13 @@ Start your IntelliJ IDEA.
 
 Select "File > New > Project from Existing Sources..." from the menu bar and choose "Gradle":
 
+Generate Entity code with Gradle
+--------------------------------
+
+```sh
+./gradlew domaCodeGenDevEntity
+```
+
 Build with Gradle
 -------------------------
 
@@ -40,4 +47,4 @@ Document
 --------
 
 - [Kotlin support](http://doma.readthedocs.io/en/stable/kotlin-support/)
-
+- [Doma CodeGen Plugin](https://github.com/domaframework/doma-codegen-plugin)

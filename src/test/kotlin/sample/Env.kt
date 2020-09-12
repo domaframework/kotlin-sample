@@ -5,6 +5,8 @@ import org.junit.jupiter.api.extension.BeforeTestExecutionCallback
 import org.junit.jupiter.api.extension.ExtensionContext
 import org.junit.jupiter.api.extension.ParameterContext
 import org.junit.jupiter.api.extension.ParameterResolver
+import sample.dao.ScriptDao
+import sample.dao.ScriptDaoImpl
 
 internal class Env :
     BeforeTestExecutionCallback,

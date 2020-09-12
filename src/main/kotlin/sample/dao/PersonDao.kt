@@ -1,10 +1,14 @@
-package sample
+package sample.dao
 
 import org.seasar.doma.Dao
 import org.seasar.doma.Select
 import org.seasar.doma.Sql
 import org.seasar.doma.jdbc.Config
 import org.seasar.doma.jdbc.criteria.Entityql
+import sample.domain.Name
+import sample.entity.Department_
+import sample.entity.Person
+import sample.entity.Person_
 
 @Dao
 interface PersonDao {
@@ -26,7 +30,7 @@ interface PersonDao {
         return entityql.from(p).innerJoin(d) {
             it.eq(p.departmentId, d.id)
         }.where {
-            it.eq(d.name, departmentName)
+            it.eq(d.name, Name(departmentName))
         }.associate(p, d) { person, department ->
             person.department = department
         }.fetch()

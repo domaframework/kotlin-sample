@@ -1,4 +1,4 @@
-package sample
+package sample.domain
 
 import org.seasar.doma.Domain
 

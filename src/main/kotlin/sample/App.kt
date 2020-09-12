@@ -1,5 +1,10 @@
 package sample
 
+import sample.dao.PersonDao
+import sample.dao.PersonDaoImpl
+import sample.dao.ScriptDao
+import sample.dao.ScriptDaoImpl
+
 fun main() {
     val tm = DbConfig.transactionManager
     val scriptDao: ScriptDao = ScriptDaoImpl(DbConfig)
