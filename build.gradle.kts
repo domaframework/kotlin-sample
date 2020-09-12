@@ -9,9 +9,9 @@ buildscript {
 
 plugins {
     id("application")
+    id("com.diffplug.spotless") version "5.5.0"
     id("org.seasar.doma.codegen") version "1.2.1"
     id("org.seasar.doma.compile") version "1.1.0"
-    id("org.jlleitschuh.gradle.ktlint") version "9.4.0"
     kotlin("jvm") version "1.4.0"
     kotlin("kapt") version "1.4.0"
 }
@@ -34,8 +34,12 @@ repositories {
     maven(url = "https://oss.sonatype.org/content/repositories/snapshots/")
 }
 
-ktlint {
-    version.set("0.38.1")
+spotless {
+    kotlin {
+        ktlint("0.38.1")
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
 }
 
 val h2Url = "jdbc:h2:mem:tutorial;DB_CLOSE_DELAY=-1"
@@ -71,7 +75,7 @@ tasks {
         useJUnitPlatform()
     }
 
-    register("createDb") {
+    val createDb by registering {
         doLast {
             val ds = org.seasar.doma.gradle.codegen.jdbc.SimpleDataSource()
             ds.driver = org.h2.Driver()
@@ -85,6 +89,12 @@ tasks {
             }
         }
     }
-}
 
-tasks.getByName("domaCodeGenDevDbMeta").dependsOn("createDb")
+    named("domaCodeGenDevDbMeta") {
+        dependsOn(createDb)
+    }
+
+    build {
+        dependsOn(spotlessApply)
+    }
+}
