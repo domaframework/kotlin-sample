@@ -4,7 +4,7 @@ import org.seasar.doma.Dao
 import org.seasar.doma.Select
 import org.seasar.doma.Sql
 import org.seasar.doma.jdbc.Config
-import org.seasar.doma.jdbc.criteria.Entityql
+import org.seasar.doma.jdbc.criteria.KEntityql
 import sample.domain.Name
 import sample.entity.Department_
 import sample.entity.Person
@@ -14,7 +14,7 @@ import sample.entity.Person_
 interface PersonDao {
 
     private val entityql
-        get() = Entityql(Config.get(this))
+        get() = KEntityql(Config.get(this))
 
     @Select
     fun selectById(id: Int): Person
@@ -28,9 +28,9 @@ interface PersonDao {
         val d = Department_()
 
         return entityql.from(p).innerJoin(d) {
-            it.eq(p.departmentId, d.id)
+            eq(p.departmentId, d.id)
         }.where {
-            it.eq(d.name, Name(departmentName))
+            eq(d.name, Name(departmentName))
         }.associate(p, d) { person, department ->
             person.department = department
         }.fetch()
