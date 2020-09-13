@@ -24,8 +24,8 @@ dependencies {
     kapt("org.seasar.doma:doma-processor:2.42.0")
     implementation("org.seasar.doma:doma-kotlin:2.42.0")
     runtimeOnly("com.h2database:h2:1.4.200")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.6.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.6.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
 }
 
 repositories {
