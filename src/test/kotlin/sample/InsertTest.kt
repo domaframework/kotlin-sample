@@ -10,31 +10,29 @@ import sample.domain.Name
 import sample.entity.Person
 
 @ExtendWith(Env::class)
-class InsertTest(private val config: DbConfig) {
+class InsertTest(config: DbConfig) {
 
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test
     fun test() {
-        config.transactionManager.required {
-            val entity = dao.insert(
-                Person().apply {
-                    name = Name("WARD")
-                    age = 10
-                    city = "Kyoto"
-                    street = "Kawaramachi"
-                    departmentId = 1
-                    gender = Gender.MALE
-                }
-            )
-            val id = entity.id
-            val newEntity = dao.selectById(id)
-            with(newEntity) {
-                assertEquals(Name("WARD"), name)
-                assertEquals(10, age)
-                assertEquals(Gender.MALE, gender)
-                assertEquals(1, version)
+        val entity = dao.insert(
+            Person().apply {
+                name = Name("WARD")
+                age = 10
+                city = "Kyoto"
+                street = "Kawaramachi"
+                departmentId = 1
+                gender = Gender.MALE
             }
+        )
+        val id = entity.id
+        val newEntity = dao.selectById(id)
+        with(newEntity) {
+            assertEquals(Name("WARD"), name)
+            assertEquals(10, age)
+            assertEquals(Gender.MALE, gender)
+            assertEquals(1, version)
         }
     }
 }

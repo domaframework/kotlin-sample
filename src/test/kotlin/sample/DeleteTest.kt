@@ -7,16 +7,14 @@ import sample.dao.PersonDao
 import sample.dao.PersonDaoImpl
 
 @ExtendWith(Env::class)
-class DeleteTest(private val config: DbConfig) {
+class DeleteTest(config: DbConfig) {
 
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test
     fun test() {
-        config.transactionManager.required {
-            val person = dao.selectById(1)
-            val deleted = dao.delete(person)
-            assertNotNull(deleted)
-        }
+        val person = dao.selectById(1)
+        val deleted = dao.delete(person)
+        assertNotNull(deleted)
     }
 }

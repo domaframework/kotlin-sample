@@ -9,22 +9,20 @@ import sample.domain.Gender
 import sample.domain.Name
 
 @ExtendWith(Env::class)
-class UpdateTest(private val config: DbConfig) {
+class UpdateTest(config: DbConfig) {
 
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test
     fun test() {
-        config.transactionManager.required {
-            val person = dao.selectById(1)
-            person.age?.let { person.age = it + 1 }
-            dao.update(person)
-            with(person) {
-                assertEquals(1, id)
-                assertEquals(Name("SMITH"), name)
-                assertEquals(11, age)
-                assertEquals(Gender.MALE, gender)
-            }
+        val person = dao.selectById(1)
+        person.age?.let { person.age = it + 1 }
+        dao.update(person)
+        with(person) {
+            assertEquals(1, id)
+            assertEquals(Name("SMITH"), name)
+            assertEquals(11, age)
+            assertEquals(Gender.MALE, gender)
         }
     }
 }

@@ -10,51 +10,45 @@ import sample.domain.Gender
 import sample.domain.Name
 
 @ExtendWith(Env::class)
-class SelectTest(private val config: DbConfig) {
+class SelectTest(config: DbConfig) {
 
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test
-    fun selectBySqlFile() {
-        config.transactionManager.required {
-            val person = dao.selectById(1)
-            with(person) {
-                assertEquals(1, id)
-                assertEquals(Name("SMITH"), name)
-                assertEquals(10, age)
-                assertEquals("Tokyo", city)
-                assertEquals("Yaesu", street)
-                assertEquals(Gender.MALE, gender)
-                assertEquals(0, version)
-            }
+    fun selectById() {
+        val person = dao.selectById(1)
+        with(person) {
+            assertEquals(1, id)
+            assertEquals(Name("SMITH"), name)
+            assertEquals(10, age)
+            assertEquals("Tokyo", city)
+            assertEquals("Yaesu", street)
+            assertEquals(Gender.MALE, gender)
+            assertEquals(0, version)
         }
     }
 
     @Test
-    fun selectBySqlAnnotation() {
-        config.transactionManager.required {
-            val person = dao.selectByName("SMITH")
-            with(person) {
-                assertEquals(1, id)
-                assertEquals(Name("SMITH"), name)
-                assertEquals(10, age)
-                assertEquals("Tokyo", city)
-                assertEquals("Yaesu", street)
-                assertEquals(Gender.MALE, gender)
-                assertEquals(0, version)
-            }
+    fun selectByName() {
+        val person = dao.selectByName("SMITH")
+        with(person) {
+            assertEquals(1, id)
+            assertEquals(Name("SMITH"), name)
+            assertEquals(10, age)
+            assertEquals("Tokyo", city)
+            assertEquals("Yaesu", street)
+            assertEquals(Gender.MALE, gender)
+            assertEquals(0, version)
         }
     }
 
     @Test
     fun selectByCriteriaApi() {
-        config.transactionManager.required {
-            val persons = dao.findByDepartmentName("ACCOUNTING")
-            assertEquals(1, persons.size)
-            val person = persons[0]
-            assertEquals(Name("SMITH"), person.name)
-            assertNotNull(person.department)
-            assertEquals(1, person.department?.id)
-        }
+        val persons = dao.findByDepartmentName("ACCOUNTING")
+        assertEquals(1, persons.size)
+        val person = persons[0]
+        assertEquals(Name("SMITH"), person.name)
+        assertNotNull(person.department)
+        assertEquals(1, person.department?.id)
     }
 }

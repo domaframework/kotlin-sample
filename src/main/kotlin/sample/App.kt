@@ -6,17 +6,17 @@ import sample.dao.ScriptDao
 import sample.dao.ScriptDaoImpl
 
 fun main() {
-    val tm = DbConfig.transactionManager
-    val scriptDao: ScriptDao = ScriptDaoImpl(DbConfig)
-    val personDao: PersonDao = PersonDaoImpl(DbConfig)
+    val config = DbConfig.create()
+    val scriptDao: ScriptDao = ScriptDaoImpl(config)
+    val personDao: PersonDao = PersonDaoImpl(config)
 
     // create initial data
-    tm.required {
+    config.transactionManager.required {
         scriptDao.create()
     }
 
     // execute queries
-    tm.required {
+    config.transactionManager.required {
         val people = personDao.findByDepartmentName("SALES")
         people.forEach {
             println("${it.name} belongs to ${it.department?.name}")
