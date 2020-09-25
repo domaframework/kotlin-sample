@@ -16,6 +16,7 @@ interface PersonDao {
     private val entityql
         get() = KEntityql(Config.get(this))
 
+    @Sql("select * from person where id = /*id*/0")
     @Select
     fun selectById(id: Int): Person
 
