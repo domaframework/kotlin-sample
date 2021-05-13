@@ -17,7 +17,7 @@ plugins {
 }
 
 application {
-    mainClassName = "sample.AppKt"
+    mainClass.set("sample.AppKt")
 }
 
 dependencies {
