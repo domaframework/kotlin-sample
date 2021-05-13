@@ -10,14 +10,14 @@ buildscript {
 plugins {
     id("application")
     id("com.diffplug.spotless") version "5.12.4"
-    id("org.seasar.doma.codegen") version "1.2.1"
+    id("org.seasar.doma.codegen") version "1.3.1"
     id("org.seasar.doma.compile") version "1.1.0"
     kotlin("jvm") version "1.4.0"
     kotlin("kapt") version "1.4.0"
 }
 
 application {
-    mainClassName = "sample.AppKt"
+    mainClass.set("sample.AppKt")
 }
 
 dependencies {
@@ -77,6 +77,10 @@ tasks {
     test {
         maxHeapSize = "1g"
         useJUnitPlatform()
+    }
+
+    jar {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
 
     val createDb by registering {
