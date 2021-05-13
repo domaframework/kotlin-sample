@@ -12,7 +12,7 @@ import sample.domain.Gender
 import sample.domain.Name
 
 /**
- * 
+ *
  */
 @Entity(listener = PersonListener::class, metamodel = Metamodel())
 @Table(name = "PERSON")
