@@ -11,7 +11,7 @@ import org.seasar.doma.Version
 import sample.domain.Name
 
 /**
- *
+ * 
  */
 @Entity(listener = DepartmentListener::class, metamodel = Metamodel())
 @Table(name = "DEPARTMENT")
