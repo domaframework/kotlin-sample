@@ -79,6 +79,10 @@ tasks {
         useJUnitPlatform()
     }
 
+    jar {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+
     val createDb by registering {
         doLast {
             val ds = org.seasar.doma.gradle.codegen.jdbc.SimpleDataSource()
