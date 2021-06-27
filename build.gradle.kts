@@ -12,8 +12,8 @@ plugins {
     id("com.diffplug.spotless") version "5.14.0"
     id("org.seasar.doma.codegen") version "1.4.1"
     id("org.seasar.doma.compile") version "1.1.0"
-    kotlin("jvm") version "1.4.0"
-    kotlin("kapt") version "1.4.0"
+    kotlin("jvm") version "1.5.20"
+    kotlin("kapt") version "1.5.20"
 }
 
 application {
