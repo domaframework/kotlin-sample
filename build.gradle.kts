@@ -9,7 +9,7 @@ buildscript {
 
 plugins {
     id("application")
-    id("com.diffplug.spotless") version "5.15.0"
+    id("com.diffplug.spotless") version "5.15.1"
     id("org.seasar.doma.codegen") version "1.4.1"
     id("org.seasar.doma.compile") version "1.1.0"
     kotlin("jvm") version "1.5.31"
