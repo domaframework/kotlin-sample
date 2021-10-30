@@ -4,7 +4,7 @@ import org.seasar.doma.Dao
 import org.seasar.doma.Select
 import org.seasar.doma.Sql
 import org.seasar.doma.jdbc.Config
-import org.seasar.doma.jdbc.criteria.KEntityql
+import org.seasar.doma.kotlin.jdbc.criteria.KEntityql
 import sample.domain.Name
 import sample.entity.Department_
 import sample.entity.Person
