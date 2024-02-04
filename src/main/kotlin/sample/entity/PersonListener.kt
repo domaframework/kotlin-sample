@@ -12,22 +12,39 @@ import org.seasar.doma.jdbc.entity.PreUpdateContext
  *
  */
 class PersonListener : EntityListener<Person> {
-
-    override fun preInsert(entity: Person, context: PreInsertContext<Person>) {
+    override fun preInsert(
+        entity: Person,
+        context: PreInsertContext<Person>,
+    ) {
     }
 
-    override fun preUpdate(entity: Person, context: PreUpdateContext<Person>) {
+    override fun preUpdate(
+        entity: Person,
+        context: PreUpdateContext<Person>,
+    ) {
     }
 
-    override fun preDelete(entity: Person, context: PreDeleteContext<Person>) {
+    override fun preDelete(
+        entity: Person,
+        context: PreDeleteContext<Person>,
+    ) {
     }
 
-    override fun postInsert(entity: Person, context: PostInsertContext<Person>) {
+    override fun postInsert(
+        entity: Person,
+        context: PostInsertContext<Person>,
+    ) {
     }
 
-    override fun postUpdate(entity: Person, context: PostUpdateContext<Person>) {
+    override fun postUpdate(
+        entity: Person,
+        context: PostUpdateContext<Person>,
+    ) {
     }
 
-    override fun postDelete(entity: Person, context: PostDeleteContext<Person>) {
+    override fun postDelete(
+        entity: Person,
+        context: PostDeleteContext<Person>,
+    ) {
     }
 }

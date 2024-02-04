@@ -7,7 +7,8 @@ import org.seasar.doma.Domain
 // @Domain(valueType = String::class, accessorMethod = "name", factoryMethod = "valueOf")
 enum class Gender(val code: String) {
     MALE("0"),
-    FEMALE("1");
+    FEMALE("1"),
+    ;
 
     companion object {
         @JvmStatic // doma requires JvmStatic annotation for factory method

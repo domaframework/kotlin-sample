@@ -12,7 +12,6 @@ import sample.entity.Person_
 
 @Dao
 interface PersonDao {
-
     private val entityql
         get() = KEntityql(Config.get(this))
 

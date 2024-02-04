@@ -11,7 +11,6 @@ import sample.domain.Name
 
 @ExtendWith(Env::class)
 class SelectTest(config: DbConfig) {
-
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test

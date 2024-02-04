@@ -10,7 +10,6 @@ import sample.domain.Name
 
 @ExtendWith(Env::class)
 class UpdateTest(config: DbConfig) {
-
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test

@@ -11,21 +11,21 @@ import sample.entity.Person
 
 @ExtendWith(Env::class)
 class InsertTest(config: DbConfig) {
-
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test
     fun test() {
-        val entity = dao.insert(
-            Person().apply {
-                name = Name("WARD")
-                age = 10
-                city = "Kyoto"
-                street = "Kawaramachi"
-                departmentId = 1
-                gender = Gender.MALE
-            }
-        )
+        val entity =
+            dao.insert(
+                Person().apply {
+                    name = Name("WARD")
+                    age = 10
+                    city = "Kyoto"
+                    street = "Kawaramachi"
+                    departmentId = 1
+                    gender = Gender.MALE
+                },
+            )
         val id = entity.id
         val newEntity = dao.selectById(id)
         with(newEntity) {

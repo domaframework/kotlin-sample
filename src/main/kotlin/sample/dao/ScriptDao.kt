@@ -6,7 +6,6 @@ import org.seasar.doma.Sql
 
 @Dao
 interface ScriptDao {
-
     @Script
     fun create()
 
