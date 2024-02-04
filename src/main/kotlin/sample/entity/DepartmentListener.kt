@@ -12,22 +12,39 @@ import org.seasar.doma.jdbc.entity.PreUpdateContext
  *
  */
 class DepartmentListener : EntityListener<Department> {
-
-    override fun preInsert(entity: Department, context: PreInsertContext<Department>) {
+    override fun preInsert(
+        entity: Department,
+        context: PreInsertContext<Department>,
+    ) {
     }
 
-    override fun preUpdate(entity: Department, context: PreUpdateContext<Department>) {
+    override fun preUpdate(
+        entity: Department,
+        context: PreUpdateContext<Department>,
+    ) {
     }
 
-    override fun preDelete(entity: Department, context: PreDeleteContext<Department>) {
+    override fun preDelete(
+        entity: Department,
+        context: PreDeleteContext<Department>,
+    ) {
     }
 
-    override fun postInsert(entity: Department, context: PostInsertContext<Department>) {
+    override fun postInsert(
+        entity: Department,
+        context: PostInsertContext<Department>,
+    ) {
     }
 
-    override fun postUpdate(entity: Department, context: PostUpdateContext<Department>) {
+    override fun postUpdate(
+        entity: Department,
+        context: PostUpdateContext<Department>,
+    ) {
     }
 
-    override fun postDelete(entity: Department, context: PostDeleteContext<Department>) {
+    override fun postDelete(
+        entity: Department,
+        context: PostDeleteContext<Department>,
+    ) {
     }
 }

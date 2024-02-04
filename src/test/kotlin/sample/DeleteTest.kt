@@ -8,7 +8,6 @@ import sample.dao.PersonDaoImpl
 
 @ExtendWith(Env::class)
 class DeleteTest(config: DbConfig) {
-
     private val dao: PersonDao = PersonDaoImpl(config)
 
     @Test

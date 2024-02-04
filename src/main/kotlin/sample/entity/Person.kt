@@ -17,7 +17,6 @@ import sample.domain.Name
 @Entity(listener = PersonListener::class, metamodel = Metamodel())
 @Table(name = "PERSON")
 class Person : AbstractPerson() {
-
     /**  */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

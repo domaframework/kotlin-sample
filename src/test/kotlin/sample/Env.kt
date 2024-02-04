@@ -16,7 +16,6 @@ internal class Env :
     BeforeAllCallback,
     AfterAllCallback,
     ParameterResolver {
-
     private val config = DbConfig.create()
     private val scriptDao: ScriptDao = ScriptDaoImpl(config)
 
@@ -42,13 +41,12 @@ internal class Env :
 
     override fun supportsParameter(
         parameterContext: ParameterContext?,
-        extensionContext: ExtensionContext?
-    ): Boolean =
-        parameterContext!!.parameter.type === DbConfig::class.java
+        extensionContext: ExtensionContext?,
+    ): Boolean = parameterContext!!.parameter.type === DbConfig::class.java
 
     override fun resolveParameter(
         parameterContext: ParameterContext?,
-        extensionContext: ExtensionContext?
+        extensionContext: ExtensionContext?,
     ): Any? {
         return config
     }

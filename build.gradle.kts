@@ -39,7 +39,7 @@ repositories {
 
 spotless {
     kotlin {
-        ktlint("0.38.1")
+        ktlint("1.1.1")
         trimTrailingWhitespace()
         endWithNewline()
     }
