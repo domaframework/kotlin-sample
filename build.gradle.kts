@@ -9,11 +9,11 @@ buildscript {
 
 plugins {
     id("application")
-    id("com.diffplug.spotless") version "6.11.0"
+    id("com.diffplug.spotless") version "6.12.1"
     id("org.domaframework.doma.codegen") version "2.0.0"
     id("org.domaframework.doma.compile") version "2.0.0"
-    kotlin("jvm") version "1.7.21"
-    kotlin("kapt") version "1.7.21"
+    kotlin("jvm") version "1.9.22"
+    kotlin("kapt") version "1.9.22"
 }
 
 application {
@@ -25,10 +25,10 @@ dependencies {
     kapt("org.seasar.doma:doma-processor:$domaVersion")
     implementation("org.seasar.doma:doma-kotlin:$domaVersion")
     implementation("org.seasar.doma:doma-slf4j:$domaVersion")
-    runtimeOnly("ch.qos.logback:logback-classic:1.4.5")
+    runtimeOnly("ch.qos.logback:logback-classic:1.4.14")
     runtimeOnly("com.h2database:h2:1.4.200")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.1")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.9.1")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.10.1")
 }
 
 repositories {
