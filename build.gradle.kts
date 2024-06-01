@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 buildscript {
     repositories {
         mavenCentral()
@@ -64,14 +66,14 @@ domaCodeGen {
 }
 
 tasks {
-    val jvmTarget = "11"
+    val jvmTarget = JvmTarget.JVM_11
 
     compileKotlin {
-        kotlinOptions.jvmTarget = jvmTarget
+        compilerOptions.jvmTarget = jvmTarget
     }
 
     compileTestKotlin {
-        kotlinOptions.jvmTarget = jvmTarget
+        compilerOptions.jvmTarget = jvmTarget
     }
 
     test {
