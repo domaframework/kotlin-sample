@@ -18,6 +18,11 @@ plugins {
     kotlin("kapt") version "2.0.20"
 }
 
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
 application {
     mainClass.set("sample.AppKt")
 }
@@ -66,7 +71,7 @@ domaCodeGen {
 }
 
 tasks {
-    val jvmTarget = JvmTarget.JVM_11
+    val jvmTarget = JvmTarget.JVM_17
 
     compileKotlin {
         compilerOptions.jvmTarget = jvmTarget
