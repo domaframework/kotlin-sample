@@ -13,7 +13,7 @@ plugins {
     id("application")
     id("com.diffplug.spotless") version "6.25.0"
     id("org.domaframework.doma.codegen") version "3.0.0"
-    id("org.domaframework.doma.compile") version "2.0.0"
+    id("org.domaframework.doma.compile") version "3.0.1"
     kotlin("jvm") version "2.0.20"
     kotlin("kapt") version "2.0.20"
 }
