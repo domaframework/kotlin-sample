@@ -34,8 +34,8 @@ dependencies {
     implementation("org.seasar.doma:doma-slf4j:$domaVersion")
     runtimeOnly("ch.qos.logback:logback-classic:1.5.12")
     runtimeOnly("com.h2database:h2:1.4.200")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.3")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.3")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.11.4")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.11.4")
 }
 
 repositories {
