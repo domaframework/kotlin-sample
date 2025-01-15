@@ -11,7 +11,7 @@ buildscript {
 
 plugins {
     id("application")
-    id("com.diffplug.spotless") version "6.25.0"
+    id("com.diffplug.spotless") version "7.0.2"
     id("org.domaframework.doma.codegen") version "3.0.0"
     id("org.domaframework.doma.compile") version "3.0.1"
     kotlin("jvm") version "2.1.0"
