@@ -7,6 +7,7 @@ doma-codegen = "3.0.0"
 doma-compile = "3.0.1"
 h2 = "1.4.200"
 logback = "1.5.18"
+ktlint = "1.1.1"
 
 [libraries]
 doma-processor = { module = "org.seasar.doma:doma-processor", version.ref = "doma" }
