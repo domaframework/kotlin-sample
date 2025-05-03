@@ -5,17 +5,17 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.h2database:h2:1.4.200")
+        classpath(libs.jdbc.h2)
     }
 }
 
 plugins {
     id("application")
-    id("com.diffplug.spotless") version "7.0.3"
-    id("org.domaframework.doma.codegen") version "3.0.0"
-    id("org.domaframework.doma.compile") version "3.0.1"
-    kotlin("jvm") version "2.1.20"
-    kotlin("kapt") version "2.1.20"
+    alias(libs.plugins.spotless)
+    alias(libs.plugins.doma.codegen)
+    alias(libs.plugins.doma.compile)
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 kotlin {
@@ -28,17 +28,16 @@ application {
 }
 
 dependencies {
-    val domaVersion: String by project
-    kapt("org.seasar.doma:doma-processor:$domaVersion")
-    implementation("org.seasar.doma:doma-kotlin:$domaVersion")
-    implementation("org.seasar.doma:doma-slf4j:$domaVersion")
-    runtimeOnly("ch.qos.logback:logback-classic:1.5.18")
-    runtimeOnly("com.h2database:h2:1.4.200")
+    kapt(libs.doma.processor)
+    implementation(libs.doma.kotlin)
+    implementation(libs.doma.slf4j)
+    runtimeOnly(libs.logback.classic)
+    runtimeOnly(libs.jdbc.h2)
     // Use JUnit BOM for version management
-    testImplementation(platform("org.junit:junit-bom:5.12.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter.api)
+    testRuntimeOnly(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 repositories {

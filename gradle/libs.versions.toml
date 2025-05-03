@@ -1,0 +1,29 @@
+[versions]
+doma = "3.7.0"
+kotlin = "2.1.20"
+junit = "5.12.2"
+spotless = "7.0.3"
+doma-codegen = "3.0.0"
+doma-compile = "3.0.1"
+h2 = "1.4.200"
+logback = "1.5.18"
+
+[libraries]
+doma-processor = { module = "org.seasar.doma:doma-processor", version.ref = "doma" }
+doma-kotlin = { module = "org.seasar.doma:doma-kotlin", version.ref = "doma" }
+doma-slf4j = { module = "org.seasar.doma:doma-slf4j", version.ref = "doma" }
+
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+jdbc-h2 = { module = "com.h2database:h2", version.ref = "h2" }
+
+junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api" }
+junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine" }
+junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+doma-codegen = { id = "org.domaframework.doma.codegen", version.ref = "doma-codegen" }
+doma-compile = { id = "org.domaframework.doma.compile", version.ref = "doma-compile" }
