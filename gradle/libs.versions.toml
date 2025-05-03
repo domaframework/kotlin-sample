@@ -5,7 +5,7 @@ junit = "5.12.2"
 spotless = "7.0.3"
 doma-codegen = "3.0.0"
 doma-compile = "3.0.1"
-h2 = "1.4.200"
+h2 = "2.3.232"
 logback = "1.5.18"
 ktlint = "1.1.1"
 
