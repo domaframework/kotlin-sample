@@ -1,5 +1,5 @@
 [versions]
-doma = "3.7.0"
+doma = "3.8.0"
 kotlin = "2.1.20"
 junit = "5.12.2"
 spotless = "7.0.3"
