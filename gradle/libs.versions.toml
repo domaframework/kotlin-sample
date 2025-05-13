@@ -1,6 +1,6 @@
 [versions]
 doma = "3.8.0"
-kotlin = "2.1.20"
+kotlin = "2.1.21"
 junit = "5.12.2"
 spotless = "7.0.3"
 doma-codegen = "3.0.0"
