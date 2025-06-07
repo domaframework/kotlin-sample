@@ -1,7 +1,7 @@
 [versions]
 doma = "3.9.0"
 kotlin = "2.1.21"
-junit = "5.13.0"
+junit = "5.13.1"
 spotless = "7.0.4"
 doma-codegen = "3.0.0"
 doma-compile = "4.0.0"
