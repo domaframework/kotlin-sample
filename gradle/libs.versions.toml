@@ -2,7 +2,7 @@
 doma = "3.11.0"
 kotlin = "2.2.20"
 junit = "5.14.0"
-spotless = "7.2.1"
+spotless = "8.0.0"
 doma-codegen = "3.2.1"
 doma-compile = "4.0.2"
 h2 = "2.4.240"
