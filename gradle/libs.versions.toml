@@ -6,7 +6,7 @@ spotless = "7.2.1"
 doma-codegen = "3.2.1"
 doma-compile = "4.0.3"
 h2 = "2.4.240"
-logback = "1.5.20"
+logback = "1.5.21"
 ktlint = "1.1.1"
 
 [libraries]
